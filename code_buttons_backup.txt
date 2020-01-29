@@ -1,0 +1,28 @@
+<View>
+        <View style={{ marginBottom: 10, }}>
+          <Button 
+            title="Enviar Dados"
+            onPress={ () => this.sendDataForm() }
+          />
+        </View>
+
+        <View style={{ marginBottom: 10, }}>
+          <Button 
+            title="Pegar Imagem em base64"
+            onPress={ () => this.fetchImages64() }
+          />
+        </View>
+
+        <View style={{ marginBottom: 10, }}>
+            <Button 
+              title="Salvar Imagem na Galeria"
+              onPress={ () => this.saveImages64() }
+            />
+        </View>
+
+        <Button 
+          title="Criar PDF"
+          onPress={ () => this.myAsyncPDFFunction() }
+        />
+
+</View>
