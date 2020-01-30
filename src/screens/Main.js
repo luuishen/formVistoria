@@ -1,6 +1,5 @@
 import {createAppContainer} from 'react-navigation';
 import {createStackNavigator} from 'react-navigation-stack';
-import base64_temp from './base64_temp';
 import FormScreen from './Form';
 import PDFSendData_p1 from './PDFSendData_p1';
 import PDFSendData_p2 from './PDFSendData_p2';
@@ -20,9 +19,6 @@ import PDFCreator from './PDFCreator';
 
 const AppNavigator = createStackNavigator(
 	{
-		base64_Temp:{
-			screen: base64_temp
-		},
 		Formulario:{
 			screen: FormScreen
 		},
