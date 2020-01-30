@@ -84,7 +84,7 @@ export default class PDFScreen extends Component {
     	const getFormId = this.props.navigation.getParam('formId', 'Erro ao recolher o ID');
   		const getBases64 = this.props.navigation.getParam('base64', 'Erro ao recolher as imagens ');
 
-		const baseFolder = '/storage/emulated/0/formVistoria/';
+		const baseFolder = '/storage/emulated/0/formVistoria/'; //Para onde vai os pdfs junto com as imagens
 
 		const formFolder = baseFolder+getFormId+'/';
 		const imagesFolder = formFolder+'images/';
