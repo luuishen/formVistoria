@@ -35,9 +35,7 @@ target 'formVistoriaV61' do
   pod 'Folly', :podspec => '../node_modules/react-native/third-party-podspecs/Folly.podspec'
 
 
-  pod 'RNFS', :path => '../node_modules/react-native-fs'
 
-  pod 'react-native-webview', :path => '../node_modules/react-native-webview'
 
   target 'formVistoriaV61Tests' do
     inherit! :search_paths

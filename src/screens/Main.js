@@ -17,55 +17,87 @@ import PDFSendData_p13 from './PDFSendData_p13';
 import PDFSendData_p14 from './PDFSendData_p14';
 import PDFCreator from './PDFCreator';
 
+const navigationOptionsValue = {
+	state:{
+		checked: false,
+	 },
+	headerTitleStyle: {
+		color: '#FFF',
+	},
+	headerTitleStyle: {
+		color: '#FFF'
+	},
+	headerTintColor:  '#FFF',
+	headerStyle: {
+		backgroundColor: '#B22222'
+	}
+}	
+
 const AppNavigator = createStackNavigator(
 	{
 		Formulario:{
-			screen: FormScreen
+			screen: FormScreen,
+			navigationOptions: navigationOptionsValue
 		},
 		PDFCreator:{
-			screen: PDFCreator
+			screen: PDFCreator,
+			navigationOptions: navigationOptionsValue
 		},
 		PDFSendData_p1:{
-			screen: PDFSendData_p1
+			screen: PDFSendData_p1,
+			navigationOptions: navigationOptionsValue
 		},
 		PDFSendData_p2:{
-			screen: PDFSendData_p2
+			screen: PDFSendData_p2,
+			navigationOptions: navigationOptionsValue
 		},
 		PDFSendData_p3:{
-			screen: PDFSendData_p3
+			screen: PDFSendData_p3,
+			navigationOptions: navigationOptionsValue
 		},
-		PDFSendData_p4:{
-			screen: PDFSendData_p4
+		PDFSendData_p4: {
+			screen: PDFSendData_p4,
+			navigationOptions: navigationOptionsValue
 		},
 		PDFSendData_p5:{
-			screen: PDFSendData_p5
+			screen: PDFSendData_p5,
+			navigationOptions: navigationOptionsValue
 		},
 		PDFSendData_p6:{
-			screen: PDFSendData_p6
+			screen: PDFSendData_p6,
+			navigationOptions: navigationOptionsValue
 		},
 		PDFSendData_p7:{
-			screen: PDFSendData_p7
+			screen: PDFSendData_p7,
+			navigationOptions: navigationOptionsValue
 		},
 		PDFSendData_p8:{
-			screen: PDFSendData_p8
+			screen: PDFSendData_p8,
+			navigationOptions: navigationOptionsValue
 		},
 		PDFSendData_p9:{
-			screen: PDFSendData_p9
+			screen: PDFSendData_p9,
+			navigationOptions: navigationOptionsValue
 		},
 		PDFSendData_p10:{
-			screen: PDFSendData_p10
+			screen: PDFSendData_p10,
+			navigationOptions: navigationOptionsValue
 		},
 		PDFSendData_p11:{
-			screen: PDFSendData_p11
+			screen: PDFSendData_p11,
+			navigationOptions: navigationOptionsValue
 		},
 		PDFSendData_p12:{
-			screen: PDFSendData_p12
+			screen: PDFSendData_p12,
+			navigationOptions: navigationOptionsValue
 		},
 		PDFSendData_p13:{
-			screen: PDFSendData_p13
+			screen: PDFSendData_p13,
+			navigationOptions: navigationOptionsValue
 		},
 		PDFSendData_p14:{
-			screen: PDFSendData_p14
+			screen: PDFSendData_p14,
+			navigationOptions: navigationOptionsValue
 		},
 	},
 	{
