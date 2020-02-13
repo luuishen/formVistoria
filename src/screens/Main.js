@@ -16,6 +16,7 @@ import PDFSendData_p12 from './PDFSendData_p12';
 import PDFSendData_p13 from './PDFSendData_p13';
 import PDFSendData_p14 from './PDFSendData_p14';
 import PDFCreator from './PDFCreator';
+import VistoriaList from './VistoriaList';
 
 const navigationOptionsValue = {
 	state:{
@@ -35,6 +36,10 @@ const navigationOptionsValue = {
 
 const AppNavigator = createStackNavigator(
 	{
+		VistoriaList: {
+			screen: VistoriaList,
+			navigationOptions: navigationOptionsValue
+		},
 		Formulario:{
 			screen: FormScreen,
 			navigationOptions: navigationOptionsValue
@@ -101,7 +106,7 @@ const AppNavigator = createStackNavigator(
 		},
 	},
 	{
-		initialRouteName: 'Formulario'
+		initialRouteName: 'VistoriaList'
 	}
 );
 
