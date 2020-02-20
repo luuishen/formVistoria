@@ -35,6 +35,8 @@ export const RealmSchema = [
             situacaoMedidorEquatorial: { type: 'bool', default: false },
             situacaoMedidorAguas: { type: 'bool', default: false },
             situacaoMedidorGas: { type: 'bool', default: false },
+            situacaoImovelRetalhado: { type: 'bool', default: false },
+            situacaoImovelRetalhadoObs: { type: 'string', default: '' },
             situacaoTampaEquatorial: { type: 'bool', default: false },
             situacaoTampaAguas: { type: 'bool', default: false },
             situacaoTampaGas: { type: 'bool', default: false },

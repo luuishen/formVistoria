@@ -2,7 +2,7 @@ import Realm from 'realm'
 import { RealmSchema } from './Schemes';
 
 
-let SCHEMA_VERSION = 2
+let SCHEMA_VERSION = 3
 
 function findAll(schemaName) {
     let realm = new Realm({

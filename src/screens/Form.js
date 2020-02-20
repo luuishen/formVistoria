@@ -54,6 +54,8 @@ export default class FormScreen extends Component {
 		let situacaoTampaEquatorial = false
 		let situacaoTampaAguas = false
 		let situacaoTampaGas = false
+		let situacaoImovelRetalhado = false
+		let situacaoImovelRetalhadoObs = ''
 		let estadoFisicoPinturaExNova = false
 		let estadoFisicoPinturaExConservada = false
 		let estadoFisicoPinturaExVelha = false
@@ -284,6 +286,8 @@ export default class FormScreen extends Component {
 			situacaoTampaEquatorial = vistoria.situacaoTampaEquatorial
 			situacaoTampaAguas = vistoria.situacaoTampaAguas
 			situacaoTampaGas = vistoria.situacaoTampaGas
+			situacaoImovelRetalhado = vistoria.situacaoImovelRetalhado
+			situacaoImovelRetalhadoObs = vistoria.situacaoImovelRetalhadoObs
 			estadoFisicoPinturaExNova = vistoria.estadoFisicoPinturaExNova
 			estadoFisicoPinturaExConservada = vistoria.estadoFisicoPinturaExConservada
 			estadoFisicoPinturaExVelha = vistoria.estadoFisicoPinturaExVelha
@@ -517,6 +521,8 @@ export default class FormScreen extends Component {
 			situacaoTampaEquatorial: situacaoTampaEquatorial,
 			situacaoTampaAguas: situacaoTampaAguas,
 			situacaoTampaGas: situacaoTampaGas,
+			situacaoImovelRetalhado: situacaoImovelRetalhado,
+			situacaoImovelRetalhadoObs: situacaoImovelRetalhadoObs,
 			estadoFisicoPinturaExNova: estadoFisicoPinturaExNova,
 			estadoFisicoPinturaExConservada: estadoFisicoPinturaExConservada,
 			estadoFisicoPinturaExVelha: estadoFisicoPinturaExVelha,
@@ -748,6 +754,8 @@ export default class FormScreen extends Component {
 			situacaoTampaEquatorial: this.state.situacaoTampaEquatorial,
 			situacaoTampaAguas: this.state.situacaoTampaAguas,
 			situacaoTampaGas: this.state.situacaoTampaGas,
+			situacaoImovelRetalhado: this.state.situacaoImovelRetalhado,
+			situacaoImovelRetalhadoObs: this.state.situacaoImovelRetalhadoObs,
 			estadoFisicoPinturaExNova: this.state.estadoFisicoPinturaExNova,
 			estadoFisicoPinturaExConservada: this.state.estadoFisicoPinturaExConservada,
 			estadoFisicoPinturaExVelha: this.state.estadoFisicoPinturaExVelha,
@@ -978,36 +986,42 @@ export default class FormScreen extends Component {
 							<Text style={styles.h2}>Locatário</Text>
 							<TextInput
 								style={styles.borderInput}
+								value={this.state.locatario}
 								onChangeText={text => this.setState({ locatario: text })}
 							/>
 
 							<Text style={styles.h2}>Locador</Text>
 							<TextInput
 								style={styles.borderInput}
+								value={this.state.locador}
 								onChangeText={text => this.setState({ locador: text })}
 							/>
 
 							<Text style={styles.h2}>Endereço</Text>
 							<TextInput
 								style={styles.borderInput}
+								value={this.state.endereco}
 								onChangeText={text => this.setState({ endereco: text })}
 							/>
 
 							<Text style={styles.h2}>Bairro</Text>
 							<TextInput
 								style={styles.borderInput}
+								value={this.state.bairro}
 								onChangeText={text => this.setState({ bairro: text })}
 							/>
 
 							<Text style={styles.h2}>Cidade</Text>
 							<TextInput
 								style={styles.borderInput}
+								value={this.state.cidade}
 								onChangeText={text => this.setState({ cidade: text })}
 							/>
 
 							<Text style={styles.h2}>UF</Text>
 							<TextInput
 								style={styles.borderInput}
+								value={this.state.uf}
 								onChangeText={text => this.setState({ uf: text })}
 							/>
 
@@ -1056,6 +1070,7 @@ export default class FormScreen extends Component {
 							<Text>Nº Locação</Text>
 							<TextInput
 								style={styles.borderInput}
+								value={this.state.situacaoN}
 								onChangeText={text => this.setState({ situacaoN: text })}
 							/>
 							{/**adicionar o campo de data */}
@@ -1067,6 +1082,7 @@ export default class FormScreen extends Component {
 									flex={1}
 									maxLength={2}
 									placeholder={'DD'}
+									value={this.state.situacaoDataDia}
 									onChangeText={text => this.setState({ situacaoDataDia: text })}
 									keyboardType='numeric'
 								/>
@@ -1076,6 +1092,7 @@ export default class FormScreen extends Component {
 									flex={1}
 									maxLength={2}
 									placeholder={'MM'}
+									value={this.state.situacaoDataMes}
 									onChangeText={text => this.setState({ situacaoDataMes: text })}
 									keyboardType='numeric'
 								/>
@@ -1086,6 +1103,7 @@ export default class FormScreen extends Component {
 									flex={2}
 									maxLength={4}
 									placeholder={'AAAA'}
+									value={this.state.situacaoDataAno}
 									onChangeText={text => this.setState({ situacaoDataAno: text })}
 									keyboardType='numeric'
 								/>
@@ -1137,6 +1155,7 @@ export default class FormScreen extends Component {
 							<Text>Leitura Nº</Text>
 							<TextInput
 								style={styles.borderInput}
+								value={this.state.situacaoLeituraEquatorial}
 								onChangeText={text => this.setState({ situacaoLeituraEquatorial: text })}
 							/>
 
@@ -1160,12 +1179,14 @@ export default class FormScreen extends Component {
 							<Text>Medidor Nº</Text>
 							<TextInput
 								style={styles.borderInput}
+								value={this.state.situacaoMedidorNAguas}
 								onChangeText={text => this.setState({ situacaoMedidorNAguas: text })}
 							/>
 
 							<Text>Leitura Nº</Text>
 							<TextInput
 								style={styles.borderInput}
+								value={this.state.situacaoLeituraAguas}
 								onChangeText={text => this.setState({ situacaoLeituraAguas: text })}
 							/>
 
@@ -1189,12 +1210,14 @@ export default class FormScreen extends Component {
 							<Text>Medidor Nº</Text>
 							<TextInput
 								style={styles.borderInput}
+								value={this.state.situacaoMedidorNGas}
 								onChangeText={text => this.setState({ situacaoMedidorNGas: text })}
 							/>
 
 							<Text>Leitura Nº</Text>
 							<TextInput
 								style={styles.borderInput}
+								value={this.state.situacaoLeituraGas}
 								onChangeText={text => this.setState({ situacaoLeituraGas: text })}
 							/>
 
@@ -1230,6 +1253,7 @@ export default class FormScreen extends Component {
 							<Text>Obs</Text>
 							<TextInput
 								style={styles.borderInput}
+								value={this.state.situacaoImovelRetalhadoObs}
 								onChangeText={text => this.setState({ situacaoImovelRetalhadoObs: text })}
 							/>
 							{/*ESTADO FÍSICO DO IMÓVEL*/}
@@ -1259,6 +1283,7 @@ export default class FormScreen extends Component {
 							<Text>Obs</Text>
 							<TextInput
 								style={styles.borderInput}
+								value={this.state.estadoFisicoPinturaExObs}
 								onChangeText={text => this.setState({ estadoFisicoPinturaExObs: text })}
 							/>
 
@@ -1286,6 +1311,7 @@ export default class FormScreen extends Component {
 							<Text>Obs</Text>
 							<TextInput
 								style={styles.borderInput}
+								value={this.state.estadoFisicoPinturaInObs}
 								onChangeText={text => this.setState({ estadoFisicoPinturaInObs: text })}
 							/>
 
@@ -1313,6 +1339,7 @@ export default class FormScreen extends Component {
 							<Text>Obs</Text>
 							<TextInput
 								style={styles.borderInput}
+								value={this.state.estadoFisicoPinturaFoObs}
 								onChangeText={text => this.setState({ estadoFisicoPinturaFoObs: text })}
 							/>
 
@@ -1340,6 +1367,7 @@ export default class FormScreen extends Component {
 							<Text>Obs</Text>
 							<TextInput
 								style={styles.borderInput}
+								value={this.state.estadoFisicoPinturaGeObs}
 								onChangeText={text => this.setState({ estadoFisicoPinturaGeObs: text })}
 							/>
 
@@ -1367,6 +1395,7 @@ export default class FormScreen extends Component {
 							<Text>Obs</Text>
 							<TextInput
 								style={styles.borderInput}
+								value={this.state.estadoFisicoPinturaPvcObs}
 								onChangeText={text => this.setState({ estadoFisicoPinturaPvcObs: text })}
 							/>
 
@@ -1394,6 +1423,7 @@ export default class FormScreen extends Component {
 							<Text>Obs</Text>
 							<TextInput
 								style={styles.borderInput}
+								value={this.state.estadoFisicoPinturaPortaMadeiraObs}
 								onChangeText={text => this.setState({ estadoFisicoPinturaPortaMadeiraObs: text })}
 							/>
 
@@ -1421,6 +1451,7 @@ export default class FormScreen extends Component {
 							<Text>Obs</Text>
 							<TextInput
 								style={styles.borderInput}
+								value={this.state.estadoFisicoPinturaJanelaMadeiraObs}
 								onChangeText={text => this.setState({ estadoFisicoPinturaJanelaMadeiraObs: text })}
 							/>
 
@@ -1448,6 +1479,7 @@ export default class FormScreen extends Component {
 							<Text>Obs</Text>
 							<TextInput
 								style={styles.borderInput}
+								value={this.state.estadoFisicoPinturaPortasFerroObs}
 								onChangeText={text => this.setState({ estadoFisicoPinturaPortasFerroObs: text })}
 							/>
 
@@ -1475,6 +1507,7 @@ export default class FormScreen extends Component {
 							<Text>Obs</Text>
 							<TextInput
 								style={styles.borderInput}
+								value={this.state.estadoFisicoPinturaJanelasFerroObs}
 								onChangeText={text => this.setState({ estadoFisicoPinturaJanelasFerroObs: text })}
 							/>
 
@@ -1502,6 +1535,7 @@ export default class FormScreen extends Component {
 							<Text>Obs</Text>
 							<TextInput
 								style={styles.borderInput}
+								value={this.state.estadoFisicoPinturaMuroObs}
 								onChangeText={text => this.setState({ estadoFisicoPinturaMuroObs: text })}
 							/>
 
@@ -1529,6 +1563,7 @@ export default class FormScreen extends Component {
 							<Text>Obs</Text>
 							<TextInput
 								style={styles.borderInput}
+								value={this.state.estadoFisicoRebocoObs}
 								onChangeText={text => this.setState({ estadoFisicoRebocoObs: text })}
 							/>
 
@@ -1556,6 +1591,7 @@ export default class FormScreen extends Component {
 							<Text>Obs</Text>
 							<TextInput
 								style={styles.borderInput}
+								value={this.state.estadoFisicoQtdChavesObs}
 								onChangeText={text => this.setState({ estadoFisicoQtdChavesObs: text })}
 							/>
 
@@ -1564,6 +1600,7 @@ export default class FormScreen extends Component {
 							<Text>Obs</Text>
 							<TextInput
 								style={styles.borderInput}
+								value={this.state.estadoFisicoInstalacoesObs}
 								onChangeText={text => this.setState({ estadoFisicoInstalacoesObs: text })}
 							/>
 
@@ -1571,6 +1608,7 @@ export default class FormScreen extends Component {
 							<Text>Obs</Text>
 							<TextInput
 								style={styles.borderInput}
+								value={this.state.estadoFisicoCaixaDisjuntorObs}
 								onChangeText={text => this.setState({ estadoFisicoCaixaDisjuntorObs: text })}
 							/>
 
@@ -1578,6 +1616,7 @@ export default class FormScreen extends Component {
 							<Text>Obs</Text>
 							<TextInput
 								style={styles.borderInput}
+								value={this.state.estadoFisicoCampainhaObs}
 								onChangeText={text => this.setState({ estadoFisicoCampainhaObs: text })}
 							/>
 
@@ -1585,6 +1624,7 @@ export default class FormScreen extends Component {
 							<Text>Obs</Text>
 							<TextInput
 								style={styles.borderInput}
+								value={this.state.estadoFisicoInterfoneObs}
 								onChangeText={text => this.setState({ estadoFisicoInterfoneObs: text })}
 							/>
 
@@ -1592,6 +1632,7 @@ export default class FormScreen extends Component {
 							<Text>Obs</Text>
 							<TextInput
 								style={styles.borderInput}
+								value={this.state.estadoFisicoLampadasComunsObs}
 								onChangeText={text => this.setState({ estadoFisicoLampadasComunsObs: text })}
 							/>
 
@@ -1599,6 +1640,7 @@ export default class FormScreen extends Component {
 							<Text>Obs</Text>
 							<TextInput
 								style={styles.borderInput}
+								value={this.state.estadoFisicoLampadasFluorescentesObs}
 								onChangeText={text => this.setState({ estadoFisicoLampadasFluorescentesObs: text })}
 							/>
 
@@ -1606,6 +1648,7 @@ export default class FormScreen extends Component {
 							<Text>Obs</Text>
 							<TextInput
 								style={styles.borderInput}
+								value={this.state.estadoFisicoLampadasDicroicasObs}
 								onChangeText={text => this.setState({ estadoFisicoLampadasDicroicasObs: text })}
 							/>
 
@@ -1613,6 +1656,7 @@ export default class FormScreen extends Component {
 							<Text>Obs</Text>
 							<TextInput
 								style={styles.borderInput}
+								value={this.state.estadoFisicoPLFluorescentesCompridaObs}
 								onChangeText={text => this.setState({ estadoFisicoPLFluorescentesCompridaObs: text })}
 							/>
 
@@ -1620,6 +1664,7 @@ export default class FormScreen extends Component {
 							<Text>Obs</Text>
 							<TextInput
 								style={styles.borderInput}
+								value={this.state.estadoFisicoPLFluorescentesRedondaObs}
 								onChangeText={text => this.setState({ estadoFisicoPLFluorescentesRedondaObs: text })}
 							/>
 
@@ -1627,6 +1672,7 @@ export default class FormScreen extends Component {
 							<Text>Obs</Text>
 							<TextInput
 								style={styles.borderInput}
+								value={this.state.estadoFisicoTomadasComunsObs}
 								onChangeText={text => this.setState({ estadoFisicoTomadasComunsObs: text })}
 							/>
 
@@ -1634,6 +1680,7 @@ export default class FormScreen extends Component {
 							<Text>Obs</Text>
 							<TextInput
 								style={styles.borderInput}
+								value={this.state.estadoFisicoTomadasTelefoneObs}
 								onChangeText={text => this.setState({ estadoFisicoTomadasTelefoneObs: text })}
 							/>
 
@@ -1641,6 +1688,7 @@ export default class FormScreen extends Component {
 							<Text>Obs</Text>
 							<TextInput
 								style={styles.borderInput}
+								value={this.state.estadoFisicoInterruptoresObs}
 								onChangeText={text => this.setState({ estadoFisicoInterruptoresObs: text })}
 							/>
 
@@ -1648,6 +1696,7 @@ export default class FormScreen extends Component {
 							<Text>Obs</Text>
 							<TextInput
 								style={styles.borderInput}
+								value={this.state.estadoFisicoLuminariasObs}
 								onChangeText={text => this.setState({ estadoFisicoLuminariasObs: text })}
 							/>
 
@@ -1655,6 +1704,7 @@ export default class FormScreen extends Component {
 							<Text>Obs</Text>
 							<TextInput
 								style={styles.borderInput}
+								value={this.state.estadoFisicoLustresObs}
 								onChangeText={text => this.setState({ estadoFisicoLustresObs: text })}
 							/>
 
@@ -1662,6 +1712,7 @@ export default class FormScreen extends Component {
 							<Text>Obs</Text>
 							<TextInput
 								style={styles.borderInput}
+								value={this.state.estadoFisicoGlobosObs}
 								onChangeText={text => this.setState({ estadoFisicoGlobosObs: text })}
 							/>
 
@@ -1669,6 +1720,7 @@ export default class FormScreen extends Component {
 							<Text>Obs</Text>
 							<TextInput
 								style={styles.borderInput}
+								value={this.state.estadoFisicoSpotsObs}
 								onChangeText={text => this.setState({ estadoFisicoSpotsObs: text })}
 							/>
 
@@ -1676,6 +1728,7 @@ export default class FormScreen extends Component {
 							<Text>Obs</Text>
 							<TextInput
 								style={styles.borderInput}
+								value={this.state.estadoFisicoBocaisPlafonObs}
 								onChangeText={text => this.setState({ estadoFisicoBocaisPlafonObs: text })}
 							/>
 
@@ -1708,6 +1761,7 @@ export default class FormScreen extends Component {
 							<Text>Obs</Text>
 							<TextInput
 								style={styles.borderInput}
+								value={this.state.estadoFisicoCercaEletricaObs}
 								onChangeText={text => this.setState({ estadoFisicoCercaEletricaObs: text })}
 							/>
 
@@ -1715,6 +1769,7 @@ export default class FormScreen extends Component {
 							<Text>Obs</Text>
 							<TextInput
 								style={styles.borderInput}
+								value={this.state.estadoFisicoInstalacoesHidroSaniObs}
 								onChangeText={text => this.setState({ estadoFisicoInstalacoesHidroSaniObs: text })}
 							/>
 
@@ -1722,6 +1777,7 @@ export default class FormScreen extends Component {
 							<Text>Obs</Text>
 							<TextInput
 								style={styles.borderInput}
+								value={this.state.estadoFisicoInstalacoesHidroSaniRegistroObs}
 								onChangeText={text => this.setState({ estadoFisicoInstalacoesHidroSaniRegistroObs: text })}
 							/>
 
@@ -1729,6 +1785,7 @@ export default class FormScreen extends Component {
 							<Text>Obs</Text>
 							<TextInput
 								style={styles.borderInput}
+								value={this.state.estadoFisicoInstalacoesHidroSaniPiaCozinhaObs}
 								onChangeText={text => this.setState({ estadoFisicoInstalacoesHidroSaniPiaCozinhaObs: text })}
 							/>
 
@@ -1736,6 +1793,7 @@ export default class FormScreen extends Component {
 							<Text>Obs</Text>
 							<TextInput
 								style={styles.borderInput}
+								value={this.state.estadoFisicoInstalacoesHidroSaniTorneiraObs}
 								onChangeText={text => this.setState({ estadoFisicoInstalacoesHidroSaniTorneiraObs: text })}
 							/>
 
@@ -1745,6 +1803,7 @@ export default class FormScreen extends Component {
 							<Text>Obs</Text>
 							<TextInput
 								style={styles.borderInput}
+								value={this.state.estadoFisicoInstalacoesHidroSaniPiaLavanObs}
 								onChangeText={text => this.setState({ estadoFisicoInstalacoesHidroSaniPiaLavanObs: text })}
 							/>
 
@@ -1752,6 +1811,7 @@ export default class FormScreen extends Component {
 							<Text>Obs</Text>
 							<TextInput
 								style={styles.borderInput}
+								value={this.state.estadoFisicoInstalacoesHidroSaniTorneiraInternaObs}
 								onChangeText={text => this.setState({ estadoFisicoInstalacoesHidroSaniTorneiraInternaObs: text })}
 							/>
 
@@ -1761,6 +1821,7 @@ export default class FormScreen extends Component {
 							<Text>Obs</Text>
 							<TextInput
 								style={styles.borderInput}
+								value={this.state.estadoFisicoInstalacoesHidroSaniPiaLavanExternaObs}
 								onChangeText={text => this.setState({ estadoFisicoInstalacoesHidroSaniPiaLavanExternaObs: text })}
 							/>
 
@@ -1768,6 +1829,7 @@ export default class FormScreen extends Component {
 							<Text>Obs</Text>
 							<TextInput
 								style={styles.borderInput}
+								value={this.state.estadoFisicoInstalacoesHidroSaniTorneiraExternaObs}
 								onChangeText={text => this.setState({ estadoFisicoInstalacoesHidroSaniTorneiraExternaObs: text })}
 							/>
 
@@ -1788,6 +1850,7 @@ export default class FormScreen extends Component {
 							<Text>Obs</Text>
 							<TextInput
 								style={styles.borderInput}
+								value={this.state.estadoFisicoInstalacoesHidroSaniPiscinaObs}
 								onChangeText={text => this.setState({ estadoFisicoInstalacoesHidroSaniPiscinaObs: text })}
 							/>
 
@@ -1797,6 +1860,7 @@ export default class FormScreen extends Component {
 							<Text>Obs</Text>
 							<TextInput
 								style={styles.borderInput}
+								value={this.state.estadoFisicoInstalacoesLavaboAcessoriosObs}
 								onChangeText={text => this.setState({ estadoFisicoInstalacoesLavaboAcessoriosObs: text })}
 							/>
 
@@ -1804,6 +1868,7 @@ export default class FormScreen extends Component {
 							<Text>Obs</Text>
 							<TextInput
 								style={styles.borderInput}
+								value={this.state.estadoFisicoInstalacoesLavaboEspelhoObs}
 								onChangeText={text => this.setState({ estadoFisicoInstalacoesLavaboEspelhoObs: text })}
 							/>
 
@@ -1811,6 +1876,7 @@ export default class FormScreen extends Component {
 							<Text>Obs</Text>
 							<TextInput
 								style={styles.borderInput}
+								value={this.state.estadoFisicoInstalacoesLavaboBoxObs}
 								onChangeText={text => this.setState({ estadoFisicoInstalacoesLavaboBoxObs: text })}
 							/>
 
@@ -1818,6 +1884,7 @@ export default class FormScreen extends Component {
 							<Text>Obs</Text>
 							<TextInput
 								style={styles.borderInput}
+								value={this.state.estadoFisicoInstalacoesLavaboPiaObs}
 								onChangeText={text => this.setState({ estadoFisicoInstalacoesLavaboPiaObs: text })}
 							/>
 
@@ -1825,6 +1892,7 @@ export default class FormScreen extends Component {
 							<Text>Obs</Text>
 							<TextInput
 								style={styles.borderInput}
+								value={this.state.estadoFisicoInstalacoesLavaboDuchaObs}
 								onChangeText={text => this.setState({ estadoFisicoInstalacoesLavaboDuchaObs: text })}
 							/>
 
@@ -1832,6 +1900,7 @@ export default class FormScreen extends Component {
 							<Text>Obs</Text>
 							<TextInput
 								style={styles.borderInput}
+								value={this.state.estadoFisicoInstalacoesLavaboDescargaObs}
 								onChangeText={text => this.setState({ estadoFisicoInstalacoesLavaboDescargaObs: text })}
 							/>
 
@@ -1839,6 +1908,7 @@ export default class FormScreen extends Component {
 							<Text>Obs</Text>
 							<TextInput
 								style={styles.borderInput}
+								value={this.state.estadoFisicoInstalacoesLavaboSanitarioObs}
 								onChangeText={text => this.setState({ estadoFisicoInstalacoesLavaboSanitarioObs: text })}
 							/>
 
@@ -1846,6 +1916,7 @@ export default class FormScreen extends Component {
 							<Text>Obs</Text>
 							<TextInput
 								style={styles.borderInput}
+								value={this.state.estadoFisicoInstalacoesLavaboAssentoObs}
 								onChangeText={text => this.setState({ estadoFisicoInstalacoesLavaboAssentoObs: text })}
 							/>
 
@@ -1853,6 +1924,7 @@ export default class FormScreen extends Component {
 							<Text>Obs</Text>
 							<TextInput
 								style={styles.borderInput}
+								value={this.state.estadoFisicoInstalacoesLavaboTorneiraObs}
 								onChangeText={text => this.setState({ estadoFisicoInstalacoesLavaboTorneiraObs: text })}
 							/>
 
@@ -1860,6 +1932,7 @@ export default class FormScreen extends Component {
 							<Text>Obs</Text>
 							<TextInput
 								style={styles.borderInput}
+								value={this.state.estadoFisicoInstalacoesLavaboArmarioObs}
 								onChangeText={text => this.setState({ estadoFisicoInstalacoesLavaboArmarioObs: text })}
 							/>
 
@@ -1869,6 +1942,7 @@ export default class FormScreen extends Component {
 							<Text>Obs</Text>
 							<TextInput
 								style={styles.borderInput}
+								value={this.state.estadoFisicoInstalacoesBanheiroSocialAcessoriosObs}
 								onChangeText={text => this.setState({ estadoFisicoInstalacoesBanheiroSocialAcessoriosObs: text })}
 							/>
 
@@ -1876,6 +1950,7 @@ export default class FormScreen extends Component {
 							<Text>Obs</Text>
 							<TextInput
 								style={styles.borderInput}
+								value={this.state.estadoFisicoInstalacoesBanheiroSocialEspelhoObs}
 								onChangeText={text => this.setState({ estadoFisicoInstalacoesBanheiroSocialEspelhoObs: text })}
 							/>
 
@@ -1883,6 +1958,7 @@ export default class FormScreen extends Component {
 							<Text>Obs</Text>
 							<TextInput
 								style={styles.borderInput}
+								value={this.state.estadoFisicoInstalacoesBanheiroSocialBoxObs}
 								onChangeText={text => this.setState({ estadoFisicoInstalacoesBanheiroSocialBoxObs: text })}
 							/>
 
@@ -1890,6 +1966,7 @@ export default class FormScreen extends Component {
 							<Text>Obs</Text>
 							<TextInput
 								style={styles.borderInput}
+								value={this.state.estadoFisicoInstalacoesBanheiroSocialPiaObs}
 								onChangeText={text => this.setState({ estadoFisicoInstalacoesBanheiroSocialPiaObs: text })}
 							/>
 
@@ -1897,6 +1974,7 @@ export default class FormScreen extends Component {
 							<Text>Obs</Text>
 							<TextInput
 								style={styles.borderInput}
+								value={this.state.estadoFisicoInstalacoesBanheiroSocialDuchaObs}
 								onChangeText={text => this.setState({ estadoFisicoInstalacoesBanheiroSocialDuchaObs: text })}
 							/>
 
@@ -1904,6 +1982,7 @@ export default class FormScreen extends Component {
 							<Text>Obs</Text>
 							<TextInput
 								style={styles.borderInput}
+								value={this.state.estadoFisicoInstalacoesBanheiroSocialDescargaObs}
 								onChangeText={text => this.setState({ estadoFisicoInstalacoesBanheiroSocialDescargaObs: text })}
 							/>
 
@@ -1911,6 +1990,7 @@ export default class FormScreen extends Component {
 							<Text>Obs</Text>
 							<TextInput
 								style={styles.borderInput}
+								value={this.state.estadoFisicoInstalacoesBanheiroSocialSanitarioObs}
 								onChangeText={text => this.setState({ estadoFisicoInstalacoesBanheiroSocialSanitarioObs: text })}
 							/>
 
@@ -1918,6 +1998,7 @@ export default class FormScreen extends Component {
 							<Text>Obs</Text>
 							<TextInput
 								style={styles.borderInput}
+								value={this.state.estadoFisicoInstalacoesBanheiroSocialAssentoObs}
 								onChangeText={text => this.setState({ estadoFisicoInstalacoesBanheiroSocialAssentoObs: text })}
 							/>
 
@@ -1925,6 +2006,7 @@ export default class FormScreen extends Component {
 							<Text>Obs</Text>
 							<TextInput
 								style={styles.borderInput}
+								value={this.state.estadoFisicoInstalacoesBanheiroSocialTorneiraObs}
 								onChangeText={text => this.setState({ estadoFisicoInstalacoesBanheiroSocialTorneiraObs: text })}
 							/>
 
@@ -1932,6 +2014,7 @@ export default class FormScreen extends Component {
 							<Text>Obs</Text>
 							<TextInput
 								style={styles.borderInput}
+								value={this.state.estadoFisicoInstalacoesBanheiroSocialArmarioObs}
 								onChangeText={text => this.setState({ estadoFisicoInstalacoesBanheiroSocialArmarioObs: text })}
 							/>
 
@@ -1941,6 +2024,7 @@ export default class FormScreen extends Component {
 							<Text>Obs</Text>
 							<TextInput
 								style={styles.borderInput}
+								value={this.state.estadoFisicoInstalacoesSuite01AcessoriosObs}
 								onChangeText={text => this.setState({ estadoFisicoInstalacoesSuite01AcessoriosObs: text })}
 							/>
 
@@ -1948,6 +2032,7 @@ export default class FormScreen extends Component {
 							<Text>Obs</Text>
 							<TextInput
 								style={styles.borderInput}
+								value={this.state.estadoFisicoInstalacoesSuite01EspelhoObs}
 								onChangeText={text => this.setState({ estadoFisicoInstalacoesSuite01EspelhoObs: text })}
 							/>
 
@@ -1955,6 +2040,7 @@ export default class FormScreen extends Component {
 							<Text>Obs</Text>
 							<TextInput
 								style={styles.borderInput}
+								value={this.state.estadoFisicoInstalacoesSuite01BoxObs}
 								onChangeText={text => this.setState({ estadoFisicoInstalacoesSuite01BoxObs: text })}
 							/>
 
@@ -1962,6 +2048,7 @@ export default class FormScreen extends Component {
 							<Text>Obs</Text>
 							<TextInput
 								style={styles.borderInput}
+								value={this.state.estadoFisicoInstalacoesSuite01PiaObs}
 								onChangeText={text => this.setState({ estadoFisicoInstalacoesSuite01PiaObs: text })}
 							/>
 
@@ -1969,6 +2056,7 @@ export default class FormScreen extends Component {
 							<Text>Obs</Text>
 							<TextInput
 								style={styles.borderInput}
+								value={this.state.estadoFisicoInstalacoesSuite01DuchaObs}
 								onChangeText={text => this.setState({ estadoFisicoInstalacoesSuite01DuchaObs: text })}
 							/>
 
@@ -1976,6 +2064,7 @@ export default class FormScreen extends Component {
 							<Text>Obs</Text>
 							<TextInput
 								style={styles.borderInput}
+								value={this.state.estadoFisicoInstalacoesSuite01DescargaObs}
 								onChangeText={text => this.setState({ estadoFisicoInstalacoesSuite01DescargaObs: text })}
 							/>
 
@@ -1983,6 +2072,7 @@ export default class FormScreen extends Component {
 							<Text>Obs</Text>
 							<TextInput
 								style={styles.borderInput}
+								value={this.state.estadoFisicoInstalacoesSuite01SanitarioObs}
 								onChangeText={text => this.setState({ estadoFisicoInstalacoesSuite01SanitarioObs: text })}
 							/>
 
@@ -1990,6 +2080,7 @@ export default class FormScreen extends Component {
 							<Text>Obs</Text>
 							<TextInput
 								style={styles.borderInput}
+								value={this.state.estadoFisicoInstalacoesSuite01AssentoObs}
 								onChangeText={text => this.setState({ estadoFisicoInstalacoesSuite01AssentoObs: text })}
 							/>
 
@@ -1997,6 +2088,7 @@ export default class FormScreen extends Component {
 							<Text>Obs</Text>
 							<TextInput
 								style={styles.borderInput}
+								value={this.state.estadoFisicoInstalacoesSuite01TorneiraObs}
 								onChangeText={text => this.setState({ estadoFisicoInstalacoesSuite01TorneiraObs: text })}
 							/>
 
@@ -2004,6 +2096,7 @@ export default class FormScreen extends Component {
 							<Text>Obs</Text>
 							<TextInput
 								style={styles.borderInput}
+								value={this.state.estadoFisicoInstalacoesSuite01ArmarioObs}
 								onChangeText={text => this.setState({ estadoFisicoInstalacoesSuite01ArmarioObs: text })}
 							/>
 
@@ -2013,6 +2106,7 @@ export default class FormScreen extends Component {
 							<Text>Obs</Text>
 							<TextInput
 								style={styles.borderInput}
+								value={this.state.estadoFisicoInstalacoesSuite02AcessoriosObs}
 								onChangeText={text => this.setState({ estadoFisicoInstalacoesSuite02AcessoriosObs: text })}
 							/>
 
@@ -2020,6 +2114,7 @@ export default class FormScreen extends Component {
 							<Text>Obs</Text>
 							<TextInput
 								style={styles.borderInput}
+								value={this.state.estadoFisicoInstalacoesSuite02EspelhoObs}
 								onChangeText={text => this.setState({ estadoFisicoInstalacoesSuite02EspelhoObs: text })}
 							/>
 
@@ -2027,6 +2122,7 @@ export default class FormScreen extends Component {
 							<Text>Obs</Text>
 							<TextInput
 								style={styles.borderInput}
+								value={this.state.estadoFisicoInstalacoesSuite02BoxObs}
 								onChangeText={text => this.setState({ estadoFisicoInstalacoesSuite02BoxObs: text })}
 							/>
 
@@ -2034,6 +2130,7 @@ export default class FormScreen extends Component {
 							<Text>Obs</Text>
 							<TextInput
 								style={styles.borderInput}
+								value={this.state.estadoFisicoInstalacoesSuite02PiaObs}
 								onChangeText={text => this.setState({ estadoFisicoInstalacoesSuite02PiaObs: text })}
 							/>
 
@@ -2041,6 +2138,7 @@ export default class FormScreen extends Component {
 							<Text>Obs</Text>
 							<TextInput
 								style={styles.borderInput}
+								value={this.state.estadoFisicoInstalacoesSuite02DuchaObs}
 								onChangeText={text => this.setState({ estadoFisicoInstalacoesSuite02DuchaObs: text })}
 							/>
 
@@ -2048,6 +2146,7 @@ export default class FormScreen extends Component {
 							<Text>Obs</Text>
 							<TextInput
 								style={styles.borderInput}
+								value={this.state.estadoFisicoInstalacoesSuite02DescargaObs}
 								onChangeText={text => this.setState({ estadoFisicoInstalacoesSuite02DescargaObs: text })}
 							/>
 
@@ -2055,6 +2154,7 @@ export default class FormScreen extends Component {
 							<Text>Obs</Text>
 							<TextInput
 								style={styles.borderInput}
+								value={this.state.estadoFisicoInstalacoesSuite02SanitarioObs}
 								onChangeText={text => this.setState({ estadoFisicoInstalacoesSuite02SanitarioObs: text })}
 							/>
 
@@ -2062,6 +2162,7 @@ export default class FormScreen extends Component {
 							<Text>Obs</Text>
 							<TextInput
 								style={styles.borderInput}
+								value={this.state.estadoFisicoInstalacoesSuite02AssentoObs}
 								onChangeText={text => this.setState({ estadoFisicoInstalacoesSuite02AssentoObs: text })}
 							/>
 
@@ -2069,6 +2170,7 @@ export default class FormScreen extends Component {
 							<Text>Obs</Text>
 							<TextInput
 								style={styles.borderInput}
+								value={this.state.estadoFisicoInstalacoesSuite02TorneiraObs}
 								onChangeText={text => this.setState({ estadoFisicoInstalacoesSuite02TorneiraObs: text })}
 							/>
 
@@ -2076,6 +2178,7 @@ export default class FormScreen extends Component {
 							<Text>Obs</Text>
 							<TextInput
 								style={styles.borderInput}
+								value={this.state.estadoFisicoInstalacoesSuite02ArmarioObs}
 								onChangeText={text => this.setState({ estadoFisicoInstalacoesSuite02ArmarioObs: text })}
 							/>
 
@@ -2085,6 +2188,7 @@ export default class FormScreen extends Component {
 							<Text>Obs</Text>
 							<TextInput
 								style={styles.borderInput}
+								value={this.state.estadoFisicoInstalacoesSuite03AcessoriosObs}
 								onChangeText={text => this.setState({ estadoFisicoInstalacoesSuite03AcessoriosObs: text })}
 							/>
 
@@ -2092,6 +2196,7 @@ export default class FormScreen extends Component {
 							<Text>Obs</Text>
 							<TextInput
 								style={styles.borderInput}
+								value={this.state.estadoFisicoInstalacoesSuite03EspelhoObs}
 								onChangeText={text => this.setState({ estadoFisicoInstalacoesSuite03EspelhoObs: text })}
 							/>
 
@@ -2099,6 +2204,7 @@ export default class FormScreen extends Component {
 							<Text>Obs</Text>
 							<TextInput
 								style={styles.borderInput}
+								value={this.state.estadoFisicoInstalacoesSuite03BoxObs}
 								onChangeText={text => this.setState({ estadoFisicoInstalacoesSuite03BoxObs: text })}
 							/>
 
@@ -2106,6 +2212,7 @@ export default class FormScreen extends Component {
 							<Text>Obs</Text>
 							<TextInput
 								style={styles.borderInput}
+								value={this.state.estadoFisicoInstalacoesSuite03PiaObs}
 								onChangeText={text => this.setState({ estadoFisicoInstalacoesSuite03PiaObs: text })}
 							/>
 
@@ -2113,6 +2220,7 @@ export default class FormScreen extends Component {
 							<Text>Obs</Text>
 							<TextInput
 								style={styles.borderInput}
+								value={this.state.estadoFisicoInstalacoesSuite03DuchaObs}
 								onChangeText={text => this.setState({ estadoFisicoInstalacoesSuite03DuchaObs: text })}
 							/>
 
@@ -2120,6 +2228,7 @@ export default class FormScreen extends Component {
 							<Text>Obs</Text>
 							<TextInput
 								style={styles.borderInput}
+								value={this.state.estadoFisicoInstalacoesSuite03DescargaObs}
 								onChangeText={text => this.setState({ estadoFisicoInstalacoesSuite03DescargaObs: text })}
 							/>
 
@@ -2127,6 +2236,7 @@ export default class FormScreen extends Component {
 							<Text>Obs</Text>
 							<TextInput
 								style={styles.borderInput}
+								value={this.state.estadoFisicoInstalacoesSuite03SanitarioObs}
 								onChangeText={text => this.setState({ estadoFisicoInstalacoesSuite03SanitarioObs: text })}
 							/>
 
@@ -2134,6 +2244,7 @@ export default class FormScreen extends Component {
 							<Text>Obs</Text>
 							<TextInput
 								style={styles.borderInput}
+								value={this.state.estadoFisicoInstalacoesSuite03AssentoObs}
 								onChangeText={text => this.setState({ estadoFisicoInstalacoesSuite03AssentoObs: text })}
 							/>
 
@@ -2141,6 +2252,7 @@ export default class FormScreen extends Component {
 							<Text>Obs</Text>
 							<TextInput
 								style={styles.borderInput}
+								value={this.state.estadoFisicoInstalacoesSuite03TorneiraObs}
 								onChangeText={text => this.setState({ estadoFisicoInstalacoesSuite03TorneiraObs: text })}
 							/>
 
@@ -2148,6 +2260,7 @@ export default class FormScreen extends Component {
 							<Text>Obs</Text>
 							<TextInput
 								style={styles.borderInput}
+								value={this.state.estadoFisicoInstalacoesSuite03ArmarioObs}
 								onChangeText={text => this.setState({ estadoFisicoInstalacoesSuite03ArmarioObs: text })}
 							/>
 
@@ -2157,6 +2270,7 @@ export default class FormScreen extends Component {
 							<Text>Obs</Text>
 							<TextInput
 								style={styles.borderInput}
+								value={this.state.estadoFisicoInstalacoesDependenciaAcessoriosObs}
 								onChangeText={text => this.setState({ estadoFisicoInstalacoesDependenciaAcessoriosObs: text })}
 							/>
 
@@ -2164,6 +2278,7 @@ export default class FormScreen extends Component {
 							<Text>Obs</Text>
 							<TextInput
 								style={styles.borderInput}
+								value={this.state.estadoFisicoInstalacoesDependenciaEspelhoObs}
 								onChangeText={text => this.setState({ estadoFisicoInstalacoesDependenciaEspelhoObs: text })}
 							/>
 
@@ -2171,6 +2286,7 @@ export default class FormScreen extends Component {
 							<Text>Obs</Text>
 							<TextInput
 								style={styles.borderInput}
+								value={this.state.estadoFisicoInstalacoesDependenciaBoxObs}
 								onChangeText={text => this.setState({ estadoFisicoInstalacoesDependenciaBoxObs: text })}
 							/>
 
@@ -2178,6 +2294,7 @@ export default class FormScreen extends Component {
 							<Text>Obs</Text>
 							<TextInput
 								style={styles.borderInput}
+								value={this.state.estadoFisicoInstalacoesDependenciaPiaObs}
 								onChangeText={text => this.setState({ estadoFisicoInstalacoesDependenciaPiaObs: text })}
 							/>
 
@@ -2185,6 +2302,7 @@ export default class FormScreen extends Component {
 							<Text>Obs</Text>
 							<TextInput
 								style={styles.borderInput}
+								value={this.state.estadoFisicoInstalacoesDependenciaDuchaObs}
 								onChangeText={text => this.setState({ estadoFisicoInstalacoesDependenciaDuchaObs: text })}
 							/>
 
@@ -2192,6 +2310,7 @@ export default class FormScreen extends Component {
 							<Text>Obs</Text>
 							<TextInput
 								style={styles.borderInput}
+								value={this.state.estadoFisicoInstalacoesDependenciaDescargaObs}
 								onChangeText={text => this.setState({ estadoFisicoInstalacoesDependenciaDescargaObs: text })}
 							/>
 
@@ -2199,6 +2318,7 @@ export default class FormScreen extends Component {
 							<Text>Obs</Text>
 							<TextInput
 								style={styles.borderInput}
+								value={this.state.estadoFisicoInstalacoesDependenciaSanitarioObs}
 								onChangeText={text => this.setState({ estadoFisicoInstalacoesDependenciaSanitarioObs: text })}
 							/>
 
@@ -2206,6 +2326,7 @@ export default class FormScreen extends Component {
 							<Text>Obs</Text>
 							<TextInput
 								style={styles.borderInput}
+								value={this.state.estadoFisicoInstalacoesDependenciaAssentoObs}
 								onChangeText={text => this.setState({ estadoFisicoInstalacoesDependenciaAssentoObs: text })}
 							/>
 
@@ -2213,6 +2334,7 @@ export default class FormScreen extends Component {
 							<Text>Obs</Text>
 							<TextInput
 								style={styles.borderInput}
+								value={this.state.estadoFisicoInstalacoesDependenciaTorneiraObs}
 								onChangeText={text => this.setState({ estadoFisicoInstalacoesDependenciaTorneiraObs: text })}
 							/>
 
@@ -2220,6 +2342,7 @@ export default class FormScreen extends Component {
 							<Text>Obs</Text>
 							<TextInput
 								style={styles.borderInput}
+								value={this.state.estadoFisicoInstalacoesDependenciaArmarioObs}
 								onChangeText={text => this.setState({ estadoFisicoInstalacoesDependenciaArmarioObs: text })}
 							/>
 
@@ -2247,6 +2370,7 @@ export default class FormScreen extends Component {
 							<Text>Obs</Text>
 							<TextInput
 								style={styles.borderInput}
+								value={this.state.estadoFisicoInstalacoesRalosEsgotoArmarioObs}
 								onChangeText={text => this.setState({ estadoFisicoInstalacoesRalosEsgotoArmarioObs: text })}
 							/>
 
@@ -2269,6 +2393,7 @@ export default class FormScreen extends Component {
 							<Text>Obs</Text>
 							<TextInput
 								style={styles.borderInput}
+								value={this.state.estadoFisicoCeramicaObs}
 								onChangeText={text => this.setState({ estadoFisicoCeramicaObs: text })}
 							/>
 
@@ -2290,6 +2415,7 @@ export default class FormScreen extends Component {
 							<Text>Obs</Text>
 							<TextInput
 								style={styles.borderInput}
+								value={this.state.estadoFisicoAzulejoObs}
 								onChangeText={text => this.setState({ estadoFisicoAzulejoObs: text })}
 							/>
 
@@ -2310,6 +2436,7 @@ export default class FormScreen extends Component {
 							<Text>Obs</Text>
 							<TextInput
 								style={styles.borderInput}
+								value={this.state.estadoFisicoCimentoObs}
 								onChangeText={text => this.setState({ estadoFisicoCimentoObs: text })}
 							/>
 
@@ -2330,6 +2457,7 @@ export default class FormScreen extends Component {
 							<Text>Obs</Text>
 							<TextInput
 								style={styles.borderInput}
+								value={this.state.estadoFisicoRodapeObs}
 								onChangeText={text => this.setState({ estadoFisicoRodapeObs: text })}
 							/>
 
@@ -2350,6 +2478,7 @@ export default class FormScreen extends Component {
 							<Text>Obs</Text>
 							<TextInput
 								style={styles.borderInput}
+								value={this.state.estadoFisicoRevestimentoObs}
 								onChangeText={text => this.setState({ estadoFisicoRevestimentoObs: text })}
 							/>
 
@@ -2370,6 +2499,7 @@ export default class FormScreen extends Component {
 							<Text>Obs</Text>
 							<TextInput
 								style={styles.borderInput}
+								value={this.state.estadoFisicoSoleirasObs}
 								onChangeText={text => this.setState({ estadoFisicoSoleirasObs: text })}
 							/>
 
@@ -2390,6 +2520,7 @@ export default class FormScreen extends Component {
 							<Text>Obs</Text>
 							<TextInput
 								style={styles.borderInput}
+								value={this.state.estadoFisicoAssoalhoObs}
 								onChangeText={text => this.setState({ estadoFisicoAssoalhoObs: text })}
 							/>
 
@@ -2410,6 +2541,7 @@ export default class FormScreen extends Component {
 							<Text>Obs</Text>
 							<TextInput
 								style={styles.borderInput}
+								value={this.state.estadoFisicoOutrosPisosObs}
 								onChangeText={text => this.setState({ estadoFisicoOutrosPisosObs: text })}
 							/>
 
@@ -2426,6 +2558,7 @@ export default class FormScreen extends Component {
 							<Text>Obs</Text>
 							<TextInput
 								style={styles.borderInput}
+								value={this.state.estadoFisicoPortasEsquadriasObs}
 								onChangeText={text => this.setState({ estadoFisicoPortasEsquadriasObs: text })}
 							/>
 
@@ -2440,6 +2573,7 @@ export default class FormScreen extends Component {
 							<Text>Obs</Text>
 							<TextInput
 								style={styles.borderInput}
+								value={this.state.estadoFisicoJanelasEsquadriasObs}
 								onChangeText={text => this.setState({ estadoFisicoJanelasEsquadriasObs: text })}
 							/>
 
@@ -2454,6 +2588,7 @@ export default class FormScreen extends Component {
 							<Text>Obs</Text>
 							<TextInput
 								style={styles.borderInput}
+								value={this.state.estadoFisicoBasculantesEsquadriasObs}
 								onChangeText={text => this.setState({ estadoFisicoBasculantesEsquadriasObs: text })}
 							/>
 
@@ -2474,6 +2609,7 @@ export default class FormScreen extends Component {
 							<TextInput
 								multiline={true}
 								style={styles.borderInput}
+								value={this.state.estadoFisicoArmariosObs}
 								onChangeText={text => this.setState({ estadoFisicoArmariosObs: text })}
 							/>
 
@@ -2481,6 +2617,7 @@ export default class FormScreen extends Component {
 							<Text>Obs</Text>
 							<TextInput
 								style={styles.borderInput}
+								value={this.state.estadoFisicoQuintalLimpoObs}
 								onChangeText={text => this.setState({ estadoFisicoQuintalLimpoObs: text })}
 							/>
 
@@ -2505,6 +2642,7 @@ export default class FormScreen extends Component {
 							<Text>Obs</Text>
 							<TextInput
 								style={styles.borderInput}
+								value={this.state.estadoFisicoJardimObs}
 								onChangeText={text => this.setState({ estadoFisicoJardimObs: text })}
 							/>
 
@@ -2524,6 +2662,7 @@ export default class FormScreen extends Component {
 							<Text>Obs</Text>
 							<TextInput
 								style={styles.borderInput}
+								value={this.state.estadoFisicoTorneiraObs}
 								onChangeText={text => this.setState({ estadoFisicoTorneiraObs: text })}
 							/>
 
@@ -2540,6 +2679,7 @@ export default class FormScreen extends Component {
 							<Text>Obs</Text>
 							<TextInput
 								style={styles.borderInput}
+								value={this.state.estadoFisicoPortaJanelaBasculanteObs}
 								onChangeText={text => this.setState({ estadoFisicoPortaJanelaBasculanteObs: text })}
 							/>
 
@@ -2567,6 +2707,7 @@ export default class FormScreen extends Component {
 							<Text>Obs</Text>
 							<TextInput
 								style={styles.borderInput}
+								value={this.state.estadoFisicoPinturasPortoesExternoObs}
 								onChangeText={text => this.setState({ estadoFisicoPinturasPortoesExternoObs: text })}
 							/>
 
@@ -2574,6 +2715,7 @@ export default class FormScreen extends Component {
 							<Text>Obs</Text>
 							<TextInput
 								style={styles.borderInput}
+								value={this.state.estadoFisicoPinturasPortoesternoObs}
 								onChangeText={text => this.setState({ estadoFisicoPinturasPortoesternoObs: text })}
 							/>
 
@@ -2581,6 +2723,7 @@ export default class FormScreen extends Component {
 							<Text>Obs</Text>
 							<TextInput
 								style={styles.borderInput}
+								value={this.state.estadoFisicoGradeImovelObs}
 								onChangeText={text => this.setState({ estadoFisicoGradeImovelObs: text })}
 							/>
 
@@ -2588,6 +2731,7 @@ export default class FormScreen extends Component {
 							<Text>Obs</Text>
 							<TextInput
 								style={styles.borderInput}
+								value={this.state.estadoFisicoCaixaArCondicionadoObs}
 								onChangeText={text => this.setState({ estadoFisicoCaixaArCondicionadoObs: text })}
 							/>
 
@@ -2607,6 +2751,7 @@ export default class FormScreen extends Component {
 							<Text>Obs</Text>
 							<TextInput
 								style={styles.borderInput}
+								value={this.state.estadoFisicoInstalacaoSplitObs}
 								onChangeText={text => this.setState({ estadoFisicoInstalacaoSplitObs: text })}
 							/>
 
@@ -2614,12 +2759,14 @@ export default class FormScreen extends Component {
 							<Text>Obs</Text>
 							<TextInput
 								style={styles.borderInput}
+								value={this.state.estadoFisicoCadeadosObs}
 								onChangeText={text => this.setState({ estadoFisicoCadeadosObs: text })}
 							/>
 							<Text style={styles.h2}>13.1 - ARMADORES</Text>
 							<Text>Obs</Text>
 							<TextInput
 								style={styles.borderInput}
+								value={this.state.estadoFisicoArmadoresObs}
 								onChangeText={text => this.setState({ estadoFisicoArmadoresObs: text })}
 							/>
 
@@ -2627,6 +2774,7 @@ export default class FormScreen extends Component {
 							<Text>Obs</Text>
 							<TextInput
 								style={styles.borderInput}
+								value={this.state.estadoFisicoObservacoesGeraisObs}
 								onChangeText={text => this.setState({ estadoFisicoObservacoesGeraisObs: text })}
 							/>
 						</View>
@@ -2673,6 +2821,8 @@ export default class FormScreen extends Component {
 									'situacaoTampaEquatorial',
 									'situacaoTampaAguas',
 									'situacaoTampaGas',
+									'situacaoImovelRetalhado',
+									'situacaoImovelRetalhadoObs',
 									'estadoFisicoPinturaExNova',
 									'estadoFisicoPinturaExConservada',
 									'estadoFisicoPinturaExVelha',
@@ -2866,7 +3016,7 @@ export default class FormScreen extends Component {
 									'estadoFisicoArmadoresObs',
 									'estadoFisicoObservacoesGeraisObs'
 								]
-								vistoria.mid = this.state,vistoria.mid
+								vistoria.mid = this.state.vistoria.mid
 								updateThis('Vistoria', vistoria, fields)
 							} else {
 								vistoria.mid = getNextMid('Vistoria')
